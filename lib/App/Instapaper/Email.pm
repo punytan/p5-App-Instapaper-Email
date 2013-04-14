@@ -149,7 +149,7 @@ sub send {
         header => [
             From    => $self->{from},
             To      => $self->{to},
-            Subject => "no subject",
+            Subject => __PACKAGE__,
         ],
         body => $item->{url},
     );
