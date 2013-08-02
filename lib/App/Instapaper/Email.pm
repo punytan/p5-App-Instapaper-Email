@@ -39,6 +39,7 @@ sub new {
         cookie_jar   => {},
         max_redirect => 0,
     );
+    push @{ $ua->requests_redirectable }, 'POST';
 
     my $to      = $args{to};
     my $from    = $args{from} || sprintf "%s@%s", getlogin(), hostname();
