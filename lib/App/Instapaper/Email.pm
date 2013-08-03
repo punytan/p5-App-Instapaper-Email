@@ -124,8 +124,8 @@ sub fetch_likes {
 
     my $scraper = scraper {
         process ".tableViewCell", "bookmarks[]" => scraper {
-            process ".titleRow a", url => '@href';
-            process ".likeBox  a", like_toggle => '@href';
+            process "a.tableViewCellTitleLink", url => '@href';
+            process "a.starToggleUnstarred", like_toggle => '@href';
         };
     };
 
