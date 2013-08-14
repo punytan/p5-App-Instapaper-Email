@@ -69,8 +69,6 @@ sub run {
     infof "authenticating";
     $self->authenticate;
 
-    $self->useragent->max_redirect(1);
-
     my $likes = $self->fetch_likes;
     for my $item (@$likes) {
         next unless $item->{url};
@@ -95,8 +93,12 @@ sub run {
 sub authenticate {
     my $self = shift;
 
+    $self->useragent->max_redirect(0);
+
     my $try = $self->useragent->get($InstapaperURL->{unread});
     return if $try->code == 200;
+
+    $self->useragent->max_redirect(7);
 
     my $login = $self->useragent->post(
         $InstapaperURL->{login}, {
