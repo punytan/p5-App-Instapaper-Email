@@ -125,7 +125,7 @@ sub fetch_likes {
     }
 
     my $scraper = scraper {
-        process "#aritcle_list .article_item", "bookmarks[]" => scraper {
+        process "#article_list .article_item", "bookmarks[]" => scraper {
             process ".title_meta .host a", url => '@href';
             process ".primary_actions a", like_toggle => '@href';
         };
