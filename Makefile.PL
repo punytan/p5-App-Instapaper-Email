@@ -12,6 +12,7 @@ requires 'Email::Sender::Transport::SMTP';
 requires 'Email::Simple';
 requires 'Email::Simple::Creator';
 requires 'LWP::UserAgent';
+requires 'LWP::Protocol::https';
 requires 'Log::Minimal';
 requires 'Web::Scraper';
 requires 'Config::PP';
